@@ -75,4 +75,11 @@ body {
     text-align: center;
 }
 
-
+.box{
+  width: 300px;
+  height: 200px;
+  background-color: beige;
+  margin: 10px;
+  text-align: center;
+  float: right;
+}
