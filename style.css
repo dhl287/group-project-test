@@ -2,6 +2,49 @@
     font-family: 'Tektur', cursive; 
 }
 
+#starting-form {
+    display: inline-block;
+    max-width: 24rem;
+    margin: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  } 
+
+  #starting-input {
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+
+  }
+
+  #destination-form {
+    display: inline-block;
+    max-width: 24rem;
+    margin: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    justify-content: center;
+  }
+
+#destination-input {
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+}
+
+  #searchBtn {
+    
+  }
+
+  #clearBtn {
+
+  }
+
 #top {
     text-align: center;
 }
+
