@@ -1,23 +1,19 @@
 // unique API key
-var apiKey = "572661e61377e7d7c006042ef76c9263";
+var apiKey = "0aec531cfccd4364841446fc91ca9602";
 
 var main = $('main');
 var form = $('#form');
 var search = $('#search');
-var lat = '';
-var lon = '';  
 var city = '';
 
-// use API to get weather by location, fetch request
-function getWeatherByLocation() {
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`, { mode: "cors" })
+// use API to get weather alerts by location, fetch request
+function getWeatherAletsByLocation() {
+    fetch(`https://api.weatherbit.io/v2.0/alerts?city={City,StateAbreviation(EX:LosAngeles,CA)}&key=0aec531cfccd4364841446fc91ca9602
       .then((resp) => resp.json())
       .then((respData) => {
         console.log(respData);
         if(respData != null){
-        lat = respData.city.coord.lat;
-        lon = respData.city.coord.lon;
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`).then(
+        fetch('https://api.weatherbit.io/v2.0/alerts?city={City,StateAbreviation(EX:LosAngeles,CA)}&key=0aec531cfccd4364841446fc91ca9602').then(
           (resp) => resp.json()
         ).then(
           (respData) => {
