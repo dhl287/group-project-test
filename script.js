@@ -22,7 +22,7 @@ function getAlertsByLocation() {
       });
   }
 
-  // add alerts to page, Rico will ask tutor about adding if/then statements for # of alerts
+  // add alerts to page, Rico will ask tutor about adding if/else statements for # of alerts
       function addAlertsToPage(data){
           var cityAlerts = document.createElement('div')
           cityAlerts.classList.add('weather');
@@ -30,25 +30,25 @@ function getAlertsByLocation() {
           cityAlerts.innerHTML = `
           <h4>${data.alerts[0].title}</h4>
           
+need to add if/else statements
+        // if(${data.alerts[0].title} === 0) {
+        //  cityAlerts.innerHTML = '
+        //  <h4>${data.alerts[0].title}</h4>
+        //  } else {
+
+        //   }
           
         
-          `;
+          `; 
         
-        //   weather.innerHTML = `
-        //   <h2><img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" /> ${temp}°F <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" /></h2>
-        //   <h4>${data.weather[0].main}</h4>
-        //   <h4>Humidity: ${data.main.humidity}</h4>
-        //   <h4>Wind Speed: ${data.wind.speed}</h4>
-        //   `;
-
           main.innerHTML= "";
            main.append(cityAlerts);
       };
 
+// need to configure searchBtn and clearBtn
+      document.getElementById("searchBtn").addEventListener("click", getAlertsByLocation());
 
-      document.getElementById("searchBtn").addEventListener("click", getAlertsByLocation);
-
-     // click search button event
+     // click enter, results show
      form.on('submit',(event) =>{
       console.log("SUBMIT")
         event.preventDefault();
