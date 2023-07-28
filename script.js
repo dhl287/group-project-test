@@ -8,12 +8,12 @@ var city = '';
 
 // use API to get weather alerts by location, fetch request
 function getWeatherAletsByLocation() {
-    fetch(`https://api.weatherbit.io/v2.0/alerts?city={City,StateAbreviation(EX:LosAngeles,CA)}&key=0aec531cfccd4364841446fc91ca9602
+    fetch(`https://api.weatherbit.io/v2.0/alerts?city={City,StateAbreviation}&key=0aec531cfccd4364841446fc91ca9602
       .then((resp) => resp.json())
       .then((respData) => {
         console.log(respData);
         if(respData != null){
-        fetch('https://api.weatherbit.io/v2.0/alerts?city={City,StateAbreviation(EX:LosAngeles,CA)}&key=0aec531cfccd4364841446fc91ca9602').then(
+        fetch('https://api.weatherbit.io/v2.0/alerts?city={City,StateAbreviation}&key=0aec531cfccd4364841446fc91ca9602').then(
           (resp) => resp.json()
         ).then(
           (respData) => {
