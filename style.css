@@ -58,3 +58,23 @@ body {
   }
 }
 
+/*Pokemon Alert Images*/
+#heat-alerts {
+   visibility: hidden
+}
+
+#cold-alerts {
+    visibility: hidden
+}
+
+ #wind-alerts {
+    visibility: hidden
+}
+ 
+ #rain-alerts {
+    visibility: hidden
+}
+
+#thunder-alerts {
+    visibility: hidden
+}
