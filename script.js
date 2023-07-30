@@ -1,5 +1,5 @@
 // unique API key
-var apiKey = "0aec531cfccd4364841446fc91ca9602";
+var apiKey = "3a081812dd82486ab2485127d4ec4566";
 var displayArea = document.getElementById ("main")
 var main = $("main");
 var form = $("#form");
