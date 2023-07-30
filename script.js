@@ -11,7 +11,7 @@ var city = "";
 // use API to get weather alerts by location, fetch request
 function getAlertsByLocation() {
   fetch(
-    `https://api.weatherbit.io/v2.0/alerts?city=${city}&key=0aec531cfccd4364841446fc91ca9602`
+    `https://api.weatherbit.io/v2.0/alerts?city=${city}&key=3a081812dd82486ab2485127d4ec4566`
   )
     .then((resp) => resp.json())
     .then((respData) => {
