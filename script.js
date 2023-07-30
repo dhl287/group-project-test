@@ -69,10 +69,61 @@ getSearchedCity()
   
 });
 
-// need to add if/else statements
-// if(${data.alerts[0].title} === 0) {
-// cityAlerts.innerHTML = '
-// <h4>${data.alerts[0].title}</h4>
-// } else {
 
-// }
+// get the search history from local storage if available
+let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+
+// add a search term to the history
+function addToSearchHistory() {
+  var searchTerm = search.val().trim();
+
+  if (searchTerm !== '') {
+    // add the search term to the history
+    searchHistory.push(searchTerm);
+
+    // update the local storage with the updated search history
+    localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+
+    // clear the search input field
+    search.val('');
+
+    // refresh the displayed search history
+    displaySearchHistory();
+  }
+}
+
+// display the search history on the page
+function displaySearchHistory() {
+  var searchHistoryList = $('#searchHistoryList');
+
+  // clear the existing list
+  searchHistoryList.empty();
+
+  // create starting index to display the search history, only show 5 items
+  let startIndex = Math.max(0, searchHistory.length - 5);
+
+  // iterate through the search history and create list items (up to 5 items)
+  for (let i = startIndex; i < searchHistory.length; i++) {
+    var searchTerm = searchHistory[i];
+    var listItem = $('<li class="text-base hover:text-blue-500"></li>').text(searchTerm);
+    searchHistoryList.append(listItem);
+  };
+}
+
+
+// click event listener to search history list items
+function handleHistoryItemClick() {
+  $('#searchHistoryList').on('click', 'li', function() {
+    var clickedSearchTerm = $(this).text();
+    // Call getCurrentWeather() with the clicked search term
+    getResultsWithSearchTerm(clickedSearchTerm);
+  });
+}
+
+function getResultsWithSearchTerm(searchTerm) {
+  city = searchTerm;
+  getAlertsByLocation();
+}
+
+displaySearchHistory();
+handleHistoryItemClick();

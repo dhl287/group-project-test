@@ -37,6 +37,12 @@ body {
   float: right;
 }
 
+.search-history {
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+}
+
 /* Media query for screens with a maximum width of 1200 pixels (smaller desktops and larger) */
 @media (max-width: 1200px) {
   body {
