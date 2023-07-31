@@ -47,18 +47,6 @@ function addAlertsToPage(data) {
   main.append(cityAlerts);
 };
 
-// form.on('submit',(event) =>{
-//   console.log("SUBMIT")
-//   event.preventDefault();
-
-//   city = search.val();
-//   console.log(city);
-//     if(city){
-//       getAlertsByLocation()
-//     }
-
-//   });
-
 // Favio - search button
 // function searching () {
 //   document.getElementById("searchBtn").addEventListener("click", getSearchedCity);
