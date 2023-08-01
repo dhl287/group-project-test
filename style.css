@@ -23,18 +23,8 @@ body {
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   } 
 
-
 #top {
     text-align: center;
-}
-
-.box{
-  width: 300px;
-  height: 200px;
-  background-color: beige;
-  margin: 10px;
-  text-align: center;
-  float: right;
 }
 
 .search-history {
@@ -58,6 +48,30 @@ body {
 
 #song {
   display: none;
+}
+
+.footer {
+  margin: auto;
+  padding: 50px;
+  justify-content: center;
+  text-align: center;
+}
+
+#made-by {
+  display: block;
+  justify-content: center;
+  text-align: center;
+}
+
+.github {
+  margin-bottom: 20px;
+  padding: 50px;
+  height: 125px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-decoration: underline;
+
 }
 
 /* Media query for screens with a maximum width of 1200 pixels (smaller desktops and larger) */
