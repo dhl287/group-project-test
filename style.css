@@ -50,6 +50,30 @@ body {
   display: none;
 }
 
+.footer {
+  margin: auto;
+  padding: 50px;
+  justify-content: center;
+  text-align: center;
+}
+
+#made-by {
+  display: block;
+  justify-content: center;
+  text-align: center;
+}
+
+.github {
+  margin-bottom: 20px;
+  padding: 50px;
+  height: 125px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-decoration: underline;
+
+}
+
 /* Media query for screens with a maximum width of 1200 pixels (smaller desktops and larger) */
 @media (max-width: 1200px) {
   body {
