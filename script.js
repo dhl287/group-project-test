@@ -8,8 +8,6 @@ var searchBtn = $('#searchBtn');
 var clearBtn = $('#clearBtn');
 var city = "";
 
-// `https://api.weatherbit.io/v2.0/alerts?city={City,StateAbreviation}&key=0aec531cfccd4364841446fc91ca9602`
-
 // use API to get weather alerts by location, fetch request
 function getAlertsByLocation() {
   fetch(`https://api.weatherbit.io/v2.0/alerts?city=${city}&key=3a081812dd82486ab2485127d4ec4566`)
@@ -96,37 +94,22 @@ function checkTitle(title) {
       }
   })
 }
-=======
-// Favio - search button
-// function searching () {
-//   document.getElementById("searchBtn").addEventListener("click", getSearchedCity);
-// }
 
-// // Jessica - search button
-// document.getElementById("searchBtn").addEventListener("click", getAlertsByLocation);
 
-// // Jessica - clear button
-// function clearbutton {
-// document.getElementById("clearBtn").addEventListener("click", () =>{
-//   document.getElementById("search").value = "";
-//   clearResults();
-// })
-// };
-
-// Donna - search button
+// search button
 $("#searchBtn").on('click', function(event) {
   event.preventDefault();
   getSearchedCity();
 });
 
-// Donna - press enter to search
+// press enter to search
 form.on('submit',(event) =>{
   console.log("SUBMIT")
   event.preventDefault();
   getSearchedCity();
 });
 
-
+// search city, get alerts by city name
 function getSearchedCity () {
   city = search.val();
   console.log(city);
@@ -135,12 +118,13 @@ function getSearchedCity () {
   }
 }
 
-// Donna - clear button
+// clear button
 $("#clearBtn").on('click', function(event) {
   event.preventDefault();
   clearResults();
 });
 
+// clearResults function to add to clear button
 function clearResults () {
   displayArea.innerText = "";
   addToSearchHistory();
@@ -186,7 +170,6 @@ function displaySearchHistory() {
   };
 }
 
-
 // click event listener to search history list items
 function handleHistoryItemClick() {
   $('#searchHistoryList').on('click', 'li', function() {
@@ -195,7 +178,6 @@ function handleHistoryItemClick() {
     getResultsWithSearchTerm(clickedSearchTerm);
   });
 }
-
 
 function getResultsWithSearchTerm(searchTerm) {
   city = searchTerm;
