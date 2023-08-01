@@ -1,46 +1,47 @@
 // unique API key
-var apiKey = "0aec531cfccd4364841446fc91ca9602";
+var apiKey = "3a081812dd82486ab2485127d4ec4566";
 var displayArea = document.getElementById ("main")
 var main = $("main");
 var form = $("#form");
 var search = $("#search");
+var searchBtn = $('#searchBtn');
+var clearBtn = $('#clearBtn');
 var city = "";
 
 // `https://api.weatherbit.io/v2.0/alerts?city={City,StateAbreviation}&key=0aec531cfccd4364841446fc91ca9602`
 
 // use API to get weather alerts by location, fetch request
 function getAlertsByLocation() {
-  fetch(
-    `https://api.weatherbit.io/v2.0/alerts?city=${city}&key=0aec531cfccd4364841446fc91ca9602`
-  )
+  fetch(`https://api.weatherbit.io/v2.0/alerts?city=${city}&key=3a081812dd82486ab2485127d4ec4566`)
     .then((resp) => resp.json())
     .then((respData) => {
       console.log(respData);
       addAlertsToPage(respData);
     })
-    .catch((error) => {
-      console.error("Error occurred:", error);
+      .catch((error) => {
+        console.error("Error occurred:", error);
     });
 }
 
-// add alerts to page, Rico will ask tutor about adding if/else statements for # of alerts
+// add alerts to page, if/else statements for # of alerts added
 function addAlertsToPage(data) {
   var cityAlerts = document.createElement("div");
-  cityAlerts.classList.add("weather");
+  cityAlerts.classList.add("alerts-class");
 
   // play sound
   document.getElementById("song").play()
  
   // No alerts
   if (data.alerts.length === 0) {
+    console.log("nothing");
     displayArea.innerText = "No weather alerts for this city!";
-  
   }
  
   // 1 or more alerts
   else {
     let displayMessage = "";
     data.alerts.forEach((alert) => {
+      console.log("alert");
       displayMessage += alert.title + "\n"; // assuming each alert is a string adjust as necessary
       checkTitle(alert.title)
     });
@@ -49,6 +50,7 @@ function addAlertsToPage(data) {
   main.innerHTML = "";
   main.append(cityAlerts);
 };
+
 
 // Function to choose which pokemon to show based on type of alert
 function checkTitle(title) {
@@ -94,6 +96,36 @@ function checkTitle(title) {
       }
   })
 }
+=======
+// Favio - search button
+// function searching () {
+//   document.getElementById("searchBtn").addEventListener("click", getSearchedCity);
+// }
+
+// // Jessica - search button
+// document.getElementById("searchBtn").addEventListener("click", getAlertsByLocation);
+
+// // Jessica - clear button
+// function clearbutton {
+// document.getElementById("clearBtn").addEventListener("click", () =>{
+//   document.getElementById("search").value = "";
+//   clearResults();
+// })
+// };
+
+// Donna - search button
+$("#searchBtn").on('click', function(event) {
+  event.preventDefault();
+  getSearchedCity();
+});
+
+// Donna - press enter to search
+form.on('submit',(event) =>{
+  console.log("SUBMIT")
+  event.preventDefault();
+  getSearchedCity();
+});
+
 
 function getSearchedCity () {
   city = search.val();
@@ -103,19 +135,16 @@ function getSearchedCity () {
   }
 }
 
-// need to configure searchBtn and clearBtn
-document
-  .getElementById("searchBtn")
-  .addEventListener("click", getSearchedCity);
-
-// click enter, results show
-form.on("submit", (event) => {
-  console.log("SUBMIT");
+// Donna - clear button
+$("#clearBtn").on('click', function(event) {
   event.preventDefault();
-getSearchedCity()
-  
+  clearResults();
 });
 
+function clearResults () {
+  displayArea.innerText = "";
+  addToSearchHistory();
+}
 
 // get the search history from local storage if available
 let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
@@ -166,6 +195,7 @@ function handleHistoryItemClick() {
     getResultsWithSearchTerm(clickedSearchTerm);
   });
 }
+
 
 function getResultsWithSearchTerm(searchTerm) {
   city = searchTerm;
