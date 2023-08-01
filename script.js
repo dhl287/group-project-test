@@ -49,6 +49,14 @@ function addAlertsToPage(data) {
   main.append(cityAlerts);
 };
 
+// Function to reset all image sources to a default image
+function resetImages() {
+  const defaultImg = "https://static.wikia.nocookie.net/crazymonsters/images/f/ff/Poke_ball.png/revision/latest/thumbnail/width/360/height/360?cb=20170530151725"; 
+  const imageIds = ["heat-door", "water-door", "wind-door", "ice-door", "thunder-door"];
+  imageIds.forEach(id => {
+    document.getElementById(id).src = defaultImg;
+  });
+}
 
 // Function to choose which pokemon to show based on type of alert
 function checkTitle(title) {
@@ -80,6 +88,8 @@ function checkTitle(title) {
     }
   ];
 
+  resetImages(); // Reset all images to default before checking the title
+
   data.forEach(item => {
       let trigger = false;
 
@@ -95,6 +105,24 @@ function checkTitle(title) {
   })
 }
 
+
+// Favio - search button
+// function searching () {
+//   document.getElementById("searchBtn").addEventListener("click", getSearchedCity);
+// }
+
+// // Jessica - search button
+// document.getElementById("searchBtn").addEventListener("click", getAlertsByLocation);
+
+// // Jessica - clear button
+// function clearbutton {
+// document.getElementById("clearBtn").addEventListener("click", () =>{
+//   document.getElementById("search").value = "";
+//   clearResults();
+// })
+// };
+
+// Donna - search button
 
 // search button
 $("#searchBtn").on('click', function(event) {
