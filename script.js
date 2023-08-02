@@ -33,6 +33,11 @@ function addAlertsToPage(data) {
   if (data.alerts.length === 0) {
     console.log("nothing");
     displayArea.innerText = "No weather alerts for this city!";
+    const defaultImg = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/175.png";
+    const imageIds = ["heat-door", "water-door", "wind-door", "ice-door", "thunder-door"];
+    imageIds.forEach(id => {
+        document.getElementById(id).src = defaultImg;
+      });
   }
  
   // 1 or more alerts
@@ -131,6 +136,12 @@ function getSearchedCity () {
 $("#clearBtn").on('click', function(event) {
   event.preventDefault();
   clearResults();
+}, function clearImages() {
+  const defaultImg = "https://static.wikia.nocookie.net/crazymonsters/images/f/ff/Poke_ball.png/revision/latest/thumbnail/width/360/height/360?cb=20170530151725";
+  const imageIds = ["heat-door", "water-door", "wind-door", "ice-door", "thunder-door"];
+  imageIds.forEach(id => {
+    document.getElementById(id).src = defaultImg;
+  });
 });
 
 // clearResults function to add to clear button
