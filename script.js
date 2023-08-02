@@ -105,25 +105,6 @@ function checkTitle(title) {
   })
 }
 
-
-// Favio - search button
-// function searching () {
-//   document.getElementById("searchBtn").addEventListener("click", getSearchedCity);
-// }
-
-// // Jessica - search button
-// document.getElementById("searchBtn").addEventListener("click", getAlertsByLocation);
-
-// // Jessica - clear button
-// function clearbutton {
-// document.getElementById("clearBtn").addEventListener("click", () =>{
-//   document.getElementById("search").value = "";
-//   clearResults();
-// })
-// };
-
-// Donna - search button
-
 // search button
 $("#searchBtn").on('click', function(event) {
   event.preventDefault();
