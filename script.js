@@ -61,6 +61,7 @@ function resetImages() {
   imageIds.forEach(id => {
     document.getElementById(id).src = defaultImg;
   });
+  
 }
 
 // Function to choose which pokemon to show based on type of alert
@@ -142,6 +143,7 @@ $("#clearBtn").on('click', function(event) {
   imageIds.forEach(id => {
     document.getElementById(id).src = defaultImg;
   });
+  clearResults();
 });
 
 // clearResults function to add to clear button
