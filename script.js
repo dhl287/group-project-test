@@ -1,5 +1,5 @@
 // unique API key
-var apiKey = "3a081812dd82486ab2485127d4ec4566";
+var apiKey = "0aec531cfccd4364841446fc91ca9602";
 var displayArea = document.getElementById ("main")
 var main = $("main");
 var form = $("#form");
@@ -10,7 +10,7 @@ var city = "";
 
 // use API to get weather alerts by location, fetch request
 function getAlertsByLocation() {
-  fetch(`https://api.weatherbit.io/v2.0/alerts?city=${city}&key=3a081812dd82486ab2485127d4ec4566`)
+  fetch(`https://api.weatherbit.io/v2.0/alerts?city=${city}&key=0aec531cfccd4364841446fc91ca9602`)
     .then((resp) => resp.json())
     .then((respData) => {
       console.log(respData);
@@ -96,19 +96,27 @@ function checkTitle(title) {
 
   resetImages(); // Reset all images to default before checking the title
 
+  const matchingImageIds = []; // Array to store matching image IDs
+
   data.forEach(item => {
-      let trigger = false;
+    let trigger = false;
 
-      item.keywords.forEach(keyword => {
-        if(title.toLowerCase().includes(keyword)) {
-          trigger = true;
-        }
-      })
-
-      if(trigger) {
-        document.getElementById(item.id).src = item.img
+    item.keywords.forEach(keyword => {
+      if (title.toLowerCase().includes(keyword)) {
+        trigger = true;
       }
-  })
+    });
+
+    if (trigger) {
+      matchingImageIds.push(item.id); // Add the matching image ID to the array
+    }
+  });
+
+  // Set the image sources for all matching image IDs
+  matchingImageIds.forEach(id => {
+    const item = data.find(item => item.id === id);
+    document.getElementById(item.id).src = item.img;
+  });
 }
 
 // search button
